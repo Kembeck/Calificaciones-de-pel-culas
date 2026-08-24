@@ -41,6 +41,61 @@ public class usuario {
 
     }
 
+    public boolean modificarCalificacion(int numeroPelicula, int nuevaCalificacion){
+        for(int i=0; i<cantidadDeCalificaciones; i++){
+            if (peliculas[i].getNumero()==numeroPelicula){
+             calificaciones[i]=nuevaCalificacion;
+             return true;
+              }
+              }
+        return false;
+    }
+    public double calcularPromedio(){
+        if (cantidadDeCalificaciones == 0) {
+            return 0;
+        }
+        int suma = 0;
+        for (int i=0; i<cantidadDeCalificaciones; i++){
+            suma = suma + calificaciones[i];
+        }
+        return suma/cantidadDeCalificaciones;
+    }
+
+    public int obtenerCalificacionMayor(){
+        if (cantidadDeCalificaciones == 0) {
+            return 0;
+        }
+        int mayor=calificaciones[0];
+        for (int i=1; i<cantidadDeCalificaciones; i++){
+            if (calificaciones[i]>mayor){
+                mayor=calificaciones[i];
+            }
+
+        }
+        return mayor;
+    }
+
+    public int obtenerCalificacionMenor(){
+        if(cantidadDeCalificaciones == 0){
+            return 0;
+        }
+        int mayor = calificaciones[0];
+        for (int i=1; i<cantidadDeCalificaciones; i++){
+            if(calificaciones[i]>mayor){
+                mayor=calificaciones[i];
+            }
+        }
+        return mayor;
+    }
+    public int obtenerCantidadCalificaciones(){
+        return cantidadDeCalificaciones;
+        
+
+    }
+    public int obtenerEspaciosDisponibles(){
+        return 10-cantidadDeCalificaciones;
+    }
+
 
     
 }
