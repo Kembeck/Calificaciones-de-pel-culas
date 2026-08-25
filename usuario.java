@@ -2,25 +2,25 @@ public class usuario {
     private String nombre;
     private String nombreUsuario;
     private int edad;
-    private Pelicula[] peliculas;
-    private int[] calificaciones;
+    private pelicula[] peliculas;
+    private int[] calificacion;
     private int cantidadDeCalificaciones;
 
-    public usuario (String nombre, int edad, String nombreUsuario){
+    public usuario (String nombre, String nombreUsuario, int edad){
         this.nombre=nombre;
         this.edad=edad;
         this.nombreUsuario=nombreUsuario;
-        peliculas=new Pelicula[10];
-        calificaciones = new int[10];
+        peliculas=new pelicula[10];
+        calificacion = new int[10];
         cantidadDeCalificaciones=0;
 
 
     }
 
-    public boolean registrarCalificacion (Pelicula pelicula, int calificaciones){
+    public boolean registrarCalificacion (pelicula pelicula, int calificacion){
         if (cantidadDeCalificaciones<10){
-            pelicula[cantidadDeCalificaciones]=peliculas;
-            calificaciones[cantidadDeCalificaciones]=calificaciones;
+            peliculas[cantidadDeCalificaciones]=pelicula;
+            this.calificacion[cantidadDeCalificaciones]=calificacion;
 
             cantidadDeCalificaciones = cantidadDeCalificaciones + 1;
             return true;
@@ -31,10 +31,10 @@ public class usuario {
 
     }
 
-    public int consultarCalificaion(int numeroPelicula){
+    public int consultarCalificacion(int numeroPelicula){
         for(int i = 0; i < cantidadDeCalificaciones; i++){
             if (peliculas[i].getNumero()==numeroPelicula){
-                return calificaciones[i];
+                return calificacion[i];
             }
         }
         return -1;
@@ -44,7 +44,7 @@ public class usuario {
     public boolean modificarCalificacion(int numeroPelicula, int nuevaCalificacion){
         for(int i=0; i<cantidadDeCalificaciones; i++){
             if (peliculas[i].getNumero()==numeroPelicula){
-             calificaciones[i]=nuevaCalificacion;
+             calificacion[i]=nuevaCalificacion;
              return true;
               }
               }
@@ -56,19 +56,19 @@ public class usuario {
         }
         int suma = 0;
         for (int i=0; i<cantidadDeCalificaciones; i++){
-            suma = suma + calificaciones[i];
+            suma = suma + calificacion[i];
         }
-        return suma/cantidadDeCalificaciones;
+        return (double)suma/cantidadDeCalificaciones;
     }
 
     public int obtenerCalificacionMayor(){
         if (cantidadDeCalificaciones == 0) {
             return 0;
         }
-        int mayor=calificaciones[0];
+        int mayor=calificacion[0];
         for (int i=1; i<cantidadDeCalificaciones; i++){
-            if (calificaciones[i]>mayor){
-                mayor=calificaciones[i];
+            if (calificacion[i]>mayor){
+                mayor=calificacion[i];
             }
 
         }
@@ -79,10 +79,10 @@ public class usuario {
         if(cantidadDeCalificaciones == 0){
             return 0;
         }
-        int mayor = calificaciones[0];
+        int mayor = calificacion[0];
         for (int i=1; i<cantidadDeCalificaciones; i++){
-            if(calificaciones[i]>mayor){
-                mayor=calificaciones[i];
+            if(calificacion[i]>mayor){
+                mayor=calificacion[i];
             }
         }
         return mayor;

@@ -11,7 +11,7 @@ public class pelicula {
     public String getNombre(){
         return nombre;
     }
-    public int getnumero(){
+    public int getNumero(){
         return numero;
     }
 
