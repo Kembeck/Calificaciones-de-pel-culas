@@ -80,7 +80,7 @@ public class interfaz {
 
                 }
                 else{
-                    System.out.println("Error al registrar la pelicula");
+                    System.out.println("Alcanzo la cantidad maxima de registros disponibles");
 
                 }
              }

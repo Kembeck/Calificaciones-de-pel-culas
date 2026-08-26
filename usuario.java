@@ -79,13 +79,13 @@ public class usuario {
         if(cantidadDeCalificaciones == 0){
             return 0;
         }
-        int mayor = calificacion[0];
+        int menor = calificacion[0];
         for (int i=1; i<cantidadDeCalificaciones; i++){
-            if(calificacion[i]>mayor){
-                mayor=calificacion[i];
+            if(calificacion[i]<menor){
+                menor=calificacion[i];
             }
         }
-        return mayor;
+        return menor;
     }
     public int obtenerCantidadCalificaciones(){
         return cantidadDeCalificaciones;
