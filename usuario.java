@@ -17,6 +17,18 @@ public class usuario {
 
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
     public boolean registrarCalificacion (pelicula pelicula, int calificacion){
         if (cantidadDeCalificaciones<10){
             peliculas[cantidadDeCalificaciones]=pelicula;

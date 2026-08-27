@@ -8,6 +8,14 @@ public class interfaz {
     scanner=new Scanner(System.in);
 
  }
+
+    public void mostrarInformacion(usuario usuario) {
+    System.out.println("Nombre: " + usuario.getNombre());
+    System.out.println("Nombre de usuario: " + usuario.getNombreUsuario());
+    System.out.println("Edad: " + usuario.getEdad());
+    }
+    
+
     public void mostrarMenu(){
         System.out.println("Menu");
         System.out.println("1. Registar pelicula");
@@ -59,6 +67,8 @@ public class interfaz {
 
         usuario usuario = new usuario(nombre, Usuario, edad);
 
+        interfaz.mostrarInformacion(usuario);
+
         int opcion=0;
 
         while (opcion!=9){
@@ -67,12 +77,14 @@ public class interfaz {
             if (opcion==1){
 
                 String nombrePelicula = interfaz.solicitarNombrePelicula();
-                int numeroPelicula=interfaz.solicitarNumeroPelicula();
-                int calificacion=interfaz.solicitarCalificaion();
+                int calificacion = interfaz.solicitarCalificaion();
 
-                pelicula pelicula=new pelicula(
-                    nombrePelicula, numeroPelicula
-                );
+                int numeroPelicula = usuario.obtenerCantidadCalificaciones() + 1;
+
+                pelicula pelicula = new pelicula(
+                   nombrePelicula, numeroPelicula
+                    );
+
                 boolean registrada= usuario.registrarCalificacion(pelicula, calificacion);
                 
                 if (registrada==true){
